@@ -148,6 +148,7 @@ def load_students():
     except FileNotFoundError:
         students = []
 
+students = load_students()
 
 while True:
     choice = action()
