@@ -145,13 +145,8 @@ def load_students():
     try:
         with open("students.json", "r") as file:
             return json.load(file)
-    except FileNotFoundError:
-        students = []
 
-students = load_students()
 
-while True:
-    choice = action()
     if choice == "1":
         add_student()
         print("Student added successfully")
