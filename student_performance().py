@@ -1,4 +1,8 @@
+from pathlib import Path
 import json
+
+DATA_FILE = Path.home() / "StudentPerformance" / "students.json"
+DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 def get_name():
     while True:
@@ -138,12 +142,12 @@ def statistics():
     print(f"Lowest Score: {lowest_score}")
 
 def save_students():
-    with open("students.json", "w") as file:
+    with open(DATA_FILE, "w", encoding="utf-8") as file:
         json.dump(students, file, indent=4)
 
 def load_students():
     try:
-        with open("students.json", "r") as file:
+        with open(DATA_FILE, "r", encoding="utf-8") as file:
             return json.load(file)
     except FileNotFoundError:
         students = []
